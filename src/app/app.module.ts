@@ -12,6 +12,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,11 @@ import { RegisterComponent } from './register/register.component';
     AngularFireModule.initializeApp(environment.firebase, 'mock-test'),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    RouterModule.forRoot([
+      { path: "login", component: LoginComponent },
+      { path: "register", component: RegisterComponent },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
