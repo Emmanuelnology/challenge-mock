@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './create-session/create-session.component';
 // import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
