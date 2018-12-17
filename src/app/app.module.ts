@@ -13,17 +13,22 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+// import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
-    { path: "login", component: LoginComponent },
-    { path: "register", component: RegisterComponent }
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: '', component: HomeComponent }
   ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
