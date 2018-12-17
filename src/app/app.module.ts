@@ -12,7 +12,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+    { path: "login", component: LoginComponent },
+    { path: "register", component: RegisterComponent }
+  ];
 
 @NgModule({
   declarations: [
@@ -26,10 +31,10 @@ import { RouterModule } from '@angular/router';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    RouterModule.forRoot([
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-    ]),
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
