@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionServiceService } from '../services/session-service.service';
 
 @Component({
   selector: 'app-create-session',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSessionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionServiceService) { }
 
   ngOnInit() {
+  }
+
+  addSession(sessionInput: HTMLFormElement) {
+
   }
 
 }
