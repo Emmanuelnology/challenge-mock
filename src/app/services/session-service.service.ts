@@ -18,6 +18,7 @@ export interface ISessionID extends ISession { id: string; }
 export class SessionServiceService {
   sessions: Observable<ISession[]>;
   sessionCollection: AngularFirestoreCollection<ISession>;
+
   constructor(afs: AngularFirestore) {
     this.sessionCollection = afs.collection<ISession>('sessions');
     this.sessions= this.sessionCollection.snapshotChanges()
@@ -32,6 +33,10 @@ export class SessionServiceService {
     });
   }
 
+  handleError(error: Error) {
+    console.log(error);
+  }
+
   addSession (courses) {
     const session: ISession = {
       topic: courses.theSession,
@@ -39,10 +44,10 @@ export class SessionServiceService {
       reflection: courses.reflection,
       rating: courses.rating
     };
-    this.sessionCollection.add(session);
+    this.sessionCollection.add(session).catch(this.handleError);;
   }
 
-  delete(book: ISessionID) {
+  delete(session: ISessionID) {
     this.sessionCollection.doc(session.id).delete();
   }
 }
