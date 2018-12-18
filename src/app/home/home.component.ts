@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  items: Observable<any[]>;
+  sessions: Observable<any[]>;
   constructor(afs: AngularFirestore) {
-    this.items = afs.collection('items').valueChanges();
+    this.sessions = afs.collection('sessions').valueChanges();
   }
   ngOnInit() {
   }

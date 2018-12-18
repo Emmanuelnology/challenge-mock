@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionServiceService } from '../services/session-service.service';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-create-session',
@@ -12,9 +13,6 @@ export class CreateSessionComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  addSession(sessionInput: HTMLFormElement) {
-
+  onSubmit (sessionForm) {
   }
-
 }

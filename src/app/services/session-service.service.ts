@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 export interface ISession {
-  user;
+  id?: string;
+  userId: string;
   date: string;
   topic: string;
   reflection: string;
@@ -12,6 +15,8 @@ export interface ISession {
   providedIn: 'root'
 })
 export class SessionServiceService {
-
-  constructor() { }
+  sessions: Observable<any[]>;
+  constructor(afs: AngularFirestore) {
+    this.sessions = afs.collection('sessions').valueChanges();
+  }
 }
