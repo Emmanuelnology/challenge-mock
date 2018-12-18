@@ -1,0 +1,16 @@
+<ul *ngFor= "let session of sessions | async">
+  <li>
+    <p> {{ session.date }} </p>
+  </li>
+  <li>
+      <p> {{ session.theSession }} </p>
+  </li>
+  <li>
+      <p> {{ session.reflection }} </p>
+  </li>
+  <li>
+      <p> {{ session.rating }} </p>
+  </li>
+  <button type="button" class="btn btn-danger" (click)="onDelete(courses)"><i class="fas fa-times"></i></button>
+</ul>
+

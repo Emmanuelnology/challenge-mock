@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 export interface ISession {
-  id?: string;
-  userId: string;
   date: string;
   topic: string;
   reflection: string;
@@ -15,11 +13,23 @@ export interface ISession {
   providedIn: 'root'
 })
 export class SessionServiceService {
-  sessions: Observable<any[]>;
+  sessions: Observable<ISession[]>;
+  sessionCollection: AngularFirestoreCollection<ISession>;
   constructor(afs: AngularFirestore) {
-    this.sessions = afs.collection('sessions').valueChanges();
+    this.sessionCollection = afs.collection<ISession>('sessions');
   }
 
-  addSession (x) {
+  addSession (courses) {
+    const session: ISession = {
+      topic: courses.theSession,
+      date: courses.date,
+      reflection: courses.reflection,
+      rating: courses.rating
+    };
+    this.sessionCollection.add(session);
+  }
+
+  remove(courses: ISession) {
+    this.sessionCollection.delete(courses);
   }
 }

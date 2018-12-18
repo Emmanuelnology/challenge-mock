@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'mock-brief';
-  items: Observable<any[]>;
+  // sessions: Observable<any[]>;
   constructor(afs: AngularFirestore) {
-    this.items = afs.collection('items').valueChanges();
+    // this.sessions = afs.collection('items').valueChanges();
   }
 }
