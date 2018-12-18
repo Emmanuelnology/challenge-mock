@@ -18,6 +18,6 @@ export class SessionListComponent implements OnInit {
   }
 
   onDelete(sessionForm) {
-    this.sessionService.remove(sessionForm);
+    this.sessionService.delete(sessionForm);
   }
 }
