@@ -19,4 +19,7 @@ export class SessionServiceService {
   constructor(afs: AngularFirestore) {
     this.sessions = afs.collection('sessions').valueChanges();
   }
+
+  addSession (x) {
+  }
 }

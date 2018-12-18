@@ -14,5 +14,6 @@ export class CreateSessionComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit (sessionForm) {
+    this.sessionService.addSession(sessionForm);
   }
 }
